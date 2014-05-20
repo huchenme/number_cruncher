@@ -6,7 +6,7 @@ require_relative 'number_cruncher.rb'
 include Rack::Test::Methods
 
 def app
-  Sinatra::Application
+  API
 end
 
 describe "Number Cruncher" do
