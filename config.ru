@@ -1,2 +1,2 @@
 require './number_cruncher'
-run Sinatra::Application
+run API

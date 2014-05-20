@@ -1,4 +1,4 @@
-require 'sinatra'
+require 'sinatra/base'
 require 'json'
 
 class Integer
@@ -12,8 +12,15 @@ class Integer
   end
 end
 
-get '/:number' do
-  content_type :json
-  number = params[:number].to_i
-  { number: number, factors: number.factors, odd: number.odd?, even: number.even?, prime: number.prime? }.to_json
+class API < Sinatra::Base
+  get '/sushi' do
+    content_type :json
+    return {:sushi => ["Maguroa", "Hamachi", "Uni", "Saba", "Ebi", "Sake", "Tai"]}.to_json
+  end
+
+  get '/:number' do
+    content_type :json
+    number = params[:number].to_i
+    { number: number, factors: number.factors, odd: number.odd?, even: number.even?, prime: number.prime? }.to_json
+  end
 end
